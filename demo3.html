@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css">
+    <script src="script/angular.min.js"></script>
+</head>
+<body ng-app="MyApp" ng-controller="HomeController">
+    <h4 ng-repeat="fruit in fruits">{{fruit}}</h4>
+    <div>
+        <select ng-model="selected">
+            <option ng-repeat="selects in data">{{selects.number}}</option>
+        </select>
+        <h2 ng-if="selected=='one'">This is one</h2>
+        <h2 ng-if="selected=='two'">Two</h2>
+        <h2 ng-if="selected=='three'">Three</h2>
+        <h2 ng-if="selected=='four'">Four</h2>
+    </div>
+    <div  ng-repeat="person in records">
+        {{person}}
+    </div>
+    <div>
+        <table class="table table-stripped" border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Place</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="per in records">
+                    <td>{{per.Name|uppercase}}</td>
+                    <td>{{per.Age}}</td>
+                    <td>{{per.Place|uppercase}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <script src="js/demo3.js"></script>
+</body>
+</html>

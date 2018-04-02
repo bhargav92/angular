@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css">
+    <script src="script/angular.min.js"></script>
+
+    <style>
+        li{
+            list-style-type:none;
+        }
+        ul{
+            background-color: red;
+            color:#fff;
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="HomeController">
+    <div>
+        <input type="text" name="name" placeholder="Search here..." ng-click="addCars()" ng-model="list">
+    </div>
+    <div ng-if="showCars">
+        <ul>
+            <li ng-repeat="car in cars | filter: list" ng-click="dtaClick(car)">{{car.name}}</li>
+        </ul>
+    </div>
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Color</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{car.name}}</td>
+                    <td>{{car.color}}</td>
+                    <td>{{car.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        var app=angular.module("myApp",[]);
+        app.controller("HomeController",function($scope){
+            $scope.data=[];
+           $scope.cars=[
+               {
+                   name:"BMW",
+                   color:"white",
+                   price:"20L"
+               },
+               {
+                   name:"Volvo",
+                   color:"grey",
+                   price:"10L"
+               },
+               {
+                   name:"skoda",
+                   color:"white",
+                   price:"30L"
+               },
+               {
+                   name:"ambassoder",
+                   color:"white",
+                   price:"10L"
+               },
+               {
+                   name:"RangeRover",
+                   color:"Red",
+                   price:"50L"
+               }
+           ] ;
+           $scope.addCars=function(){
+               $scope.showCars=true;
+
+           };
+           $scope.dtaClick=function(car){
+               $scope.car=car;
+               $scope.data.push(car);
+               console.log(car);
+               $scope.showCars=false;
+           }
+        });
+    </script>
+</body>
+</html>

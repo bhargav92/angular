@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css">
+    <script src="script/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="HomeController">
+        <div class="col-md-12">
+            <div class="col-md-offset-3 col-md-2">
+                <input type="button" value="<" ng-if="prev" class="btn btn-info" ng-click="previous()">
+                <input type="button" value="<" ng-if="!prev" class="btn btn-info" ng-click="previous()" disabled>
+            </div>
+            <div class="col-md-3">
+                <h4>Meal item data{{number}}</h4>
+            </div>
+            <div class="col-md-3">
+                <input type="button" value=">" ng-if="next" class="btn btn-info" ng-click="nextMeal()">
+                <input type="button" value=">" ng-if="!next" class="btn btn-info" ng-click="nextMeal()" disabled>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <h2 class="text-center">Week1</h2>
+            <div ng-repeat="meal in mealItems.Week1">
+                <h3 class="text-center">Day{{$index+1}}</h3>
+                <table  class="table table-striped" border="1">
+                    <tbody>
+                        <tr>
+                            <td>{{meal.meal1}}</td>
+                            <td>{{meal.meal2}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{meal.meal3}}</td>
+                            <td>{{meal.meal4}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <h2 class="text-center">Week2</h2>
+            <div ng-repeat="meal in mealItems.Week2">
+                <h3 class="text-center">Day{{$index+1}}</h3>
+                <table  class="table table-striped" border="1">
+                    <tbody>
+                    <tr>
+                        <td>{{meal.meal1}}</td>
+                        <td>{{meal.meal2}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{meal.meal3}}</td>
+                        <td>{{meal.meal4}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <h2 class="text-center">Week3</h2>
+            <div ng-repeat="meal in mealItems.Week3">
+                <h3 class="text-center">Day{{$index+1}}</h3>
+                <table  class="table table-striped" border="1">
+                    <tbody>
+                    <tr>
+                        <td>{{meal.meal1}}</td>
+                        <td>{{meal.meal2}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{meal.meal3}}</td>
+                        <td>{{meal.meal4}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div ng-repeat="meal in mealItems.Week3">
+                <h3 class="text-center">Day{{$index+1}}</h3>
+                <table  class="table table-striped" border="1">
+                    <tbody>
+                    <tr>
+                        <td>{{meal.meal1}}</td>
+                        <td>{{meal.meal2}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{meal.meal3}}</td>
+                        <td>{{meal.meal4}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <h2 class="text-center">Week4</h2>
+            <div ng-repeat="meal in mealItems.Week4">
+                <h3 class="text-center">Day{{$index+1}}</h3>
+                <table  class="table table-striped" border="1">
+                    <tbody>
+                    <tr>
+                        <td>{{meal.meal1}}</td>
+                        <td>{{meal.meal2}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{meal.meal3}}</td>
+                        <td>{{meal.meal4}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+
+    <script>
+        var app=angular.module("myApp",[]);
+        app.controller("HomeController",function($scope){
+           $scope.mealItems=
+               {
+               Week1:
+                   {
+                       Day1:
+                           {
+                                 meal1:"puri",
+                                 meal2:"Rice",
+                                 meal3:"snacks",
+                                 meal4:"Biryani"
+                           },
+                       Day2:
+                           {
+                               meal1:"Idly",
+                               meal2:" Sambar Rice",
+                               meal3:"Fruit Juice",
+                               meal4:" Chicken Biryani"
+                           },
+                       Day3:
+                           {
+                               meal1:"Dosa",
+                               meal2:"Curd Rice",
+                               meal3:"Ice Cream",
+                               meal4:" Mutton Biryani"
+                           },
+                       Day4:
+                           {
+                               meal1:"Vada",
+                               meal2:"Tomato Rice",
+                               meal3:"Salad",
+                               meal4:"Veg Biryani"
+                           }
+                   },
+                   Week2:
+                       {
+                           Day1:
+                               {
+                                   meal1:"Vada",
+                                   meal2:"Tomato Rice",
+                                   meal3:"Salad",
+                                   meal4:"Veg Biryani"
+                               },
+                           Day2:
+                               {
+                                   meal1:"Dosa",
+                                   meal2:"Curd Rice",
+                                   meal3:"Ice Cream",
+                                   meal4:" Mutton Biryani"
+                               },
+                           Day3:
+                               {
+                                   meal1:"puri",
+                                   meal2:"Rice",
+                                   meal3:"snacks",
+                                   meal4:"Biryani"
+                               },
+                           Day4:
+                               {
+                                   meal1:"Idly",
+                                   meal2:" Sambar Rice",
+                                   meal3:"Fruit Juice",
+                                   meal4:" Chicken Biryani"
+                               }
+                       },
+                   Week3:
+                       {
+                           Day1:
+                               {
+                                   meal1:"Dosa",
+                                   meal2:"Curd Rice",
+                                   meal3:"Ice Cream",
+                                   meal4:" Mutton Biryani"
+                               },
+                           Day2:
+                               {
+                                   meal1:"Idly",
+                                   meal2:" Sambar Rice",
+                                   meal3:"Fruit Juice",
+                                   meal4:" Chicken Biryani"
+                               },
+                           Day3:
+                               {
+                                   meal1:"Vada",
+                                   meal2:"Tomato Rice",
+                                   meal3:"Salad",
+                                   meal4:"Veg Biryani"
+                               },
+                           Day4:
+                               {
+                                   meal1:"puri",
+                                   meal2:"Rice",
+                                   meal3:"snacks",
+                                   meal4:"Biryani"
+                               }
+                       },
+                   Week4:
+                       {
+                           Day1:
+                               {
+                                   meal1:"pongal",
+                                   meal2:"Rice",
+                                   meal3:"snacks",
+                                   meal4:"Egg Rice"
+                               },
+                           Day2:
+                               {
+                                   meal1:"Onion Dosa",
+                                   meal2:"Rice",
+                                   meal3:"snacks",
+                                   meal4:"Gobi Rice"
+                               },
+                           Day3:
+                               {
+                                   meal1:"Roti",
+                                   meal2:"Rice",
+                                   meal3:"snacks",
+                                   meal4:"Biryani"
+                               },
+                           Day4:
+                               {
+                                   meal1:"puri",
+                                   meal2:"Rice",
+                                   meal3:"snacks",
+                                   meal4:"Biryani"
+                               }
+                       }
+           };
+           $scope.number=1;
+            $scope.next=true;
+           $scope.previous=function(){
+               $scope.number--;
+           };
+            $scope.nextMeal=function(){
+
+                $scope.number++;
+            }
+
+        });
+    </script>
+</body>
+</html>

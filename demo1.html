@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS</title>
+    <script src="script/angular.min.js"></script>
+
+</head>
+<body ng-app="MyApp" ng-controller="HomeController">
+    <div>
+        <input type="text" name="name" placeholder="name"  ng-model="name">
+        <div>This is first {{name}}</div>
+    </div>
+    <form class="form-group">
+        <input type="text" name="txt" class="form-control" placeholder="Enter name" ng-model="txtName">
+        <input type="password" name="password" class="form-control" placeholder="password" ng-model="pwd">
+        <input type="email" name="email" class="form-control" placeholder="Example@gmail.com" ng-model="email">
+        <input type="button" value="click" class="btn btn-primary" ng-click="dataClick()">
+    </form>
+
+    <div>
+        <select ng-model="selectone">
+            <option value="samsung">Samsung TV</option>
+            <option value="shoe">shoe</option>
+            <option value="mobiles">mobiles</option>
+            <option value="shirts">shirts</option>
+        </select>
+        <h1 ng-if="selectone=='samsung'">Samsung TV</h1>
+        <h1 ng-if="selectone=='shoe'">shoe</h1>
+        <h1 ng-if="selectone=='mobiles'">mobiles</h1>
+        <h1 ng-if="selectone=='shirts'">shirts</h1>
+
+    </div>
+    <div>
+        <input type="checkbox" ng-model="check" ng-change="changeValue()">
+        <p ng-show="check">This is show</p>
+        <p ng-hide="check">This is hide</p>
+    </div>
+
+
+
+    <script>
+        var app=angular.module("MyApp",[]);
+        app.controller("HomeController",function($scope){
+            $scope.dataClick=function(){
+                $scope.data={
+                    name:$scope.txtName,
+                    password:$scope.pwd,
+                    email:$scope.email
+                };
+
+                console.log($scope.data)
+                $scope.txtName='';
+                $scope.pwd='';
+                $scope.email='';
+            };
+            $scope.changeValue=function(){
+              $scope.show="check";
+              $scope.hide="check";
+            };
+
+        });
+    </script>
+</body>
+</html>

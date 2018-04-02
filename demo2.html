@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css">
+    <script src="script/angular.min.js"></script>
+</head>
+<body ng-app="">
+    <div class="form-group">
+        <input type="text" name="name" class="form-control" placeholder="Enter name" ng-model="name">
+        <div>My second script {{ name}}</div>
+    </div>
+    <div>
+        <select ng-model="selected">
+            <option value="mi">MI</option>
+            <option value="oppo">oppo</option>
+            <option value="vivo">vivo</option>
+            <option value="lava">Lava</option>
+            <option value="nokia">Nokia</option>
+        </select>
+        <h2 ng-if="selected=='mi'">MI</h2>
+        <h2 ng-if="selected=='oppo'">oppo</h2>
+        <h2 ng-if="selected=='vivo'">vivo</h2>
+        <h2 ng-if="selected=='lava'">lava</h2>
+        <h2 ng-if="selected=='nokia'">Nokia</h2>
+    </div>
+    <div>
+        <input type="checkbox" ng-model="check" >
+        <h2 ng-show="check">This text is show</h2>
+        <h2 ng-hide="check">This text is hide</h2>
+    </div>
+</body>
+</html>

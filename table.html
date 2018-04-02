@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="bootstrap/css/signin.css">
+    <script src="script/angular.min.js"></script>
+    <style>
+        input[type]{
+            margin-top: 20px;
+        }
+
+    </style>
+
+
+</head>
+<body ng-app="MyApp" ng-controller="HomeController">
+    <div>
+        <div class="text-center form-group">
+            <div>Name: <input type="text" name="name" placeholder="enter name" ng-model="name"></div>
+            <div>Place: <input type="text" name="name" placeholder="Enter City" ng-model="place"></div>
+            <div>Email: <input type="email" placeholder="Example@gmail.com" ng-model="email"></div>
+            <input type="button" value="click" class="btn btn-info" ng-click="detailsClick()">
+            <input type="file" value="choosefile" ng-click="file()">
+        </div>
+    </div>
+    <div>
+        <table class="table table-striped ">
+            <thead>
+                <tr >
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Place</th>
+                    <th>Email</th>
+
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="person in tabledata">
+                    <td>{{$index+1}}</td>
+                    <td>{{person.name}}</td>
+                    <td>{{person.place}}</td>
+                    <td>{{person.email}}</td>
+                    <td><input type="button" class="btn btn-danger" value="Delete" ng-click="delete($index)"></td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+
+
+<script src="js/table.js"></script>
+</body>
+</html>
